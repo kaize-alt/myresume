@@ -78,12 +78,12 @@ WSGI_APPLICATION = 'myown.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'myown',
-        'USER': 'postgres',
-        'PASSWORD': '',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'myresumedb',
+        'USER': 'kaize',
+        'PASSWORD': '123',
         'HOST': 'localhost',
-        'PORT': '1000',
+        'PORT': '5432',
     }
 }
 
@@ -134,3 +134,14 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+STATIC_URL = '/static/'
+
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
