@@ -1,0 +1,86 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.swp
+
+# Django
+db.sqlite3
+*.log
+media/
+staticfiles/
+
+# Docker
+*.env
+*.env.*
+*.pid
+docker-compose.override.yml
+.dockerignore
+# Исключаем данные контейнеров PostgreSQL, Redis и volumes
+volumes/
+postgres_data/
+redisdata/
+static_volume/
+media_volume/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Virtual environments
+environments/
+.env
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# PyCharm
+.idea/
+*.iml
+
+# OS generated files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+
+# Compiled files
+*.so
+*.dll
+*.dylib
+*.out
+*.exe
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Celery and Redis
+celerybeat-schedule
+celerybeat-schedule-shm
+celerybeat-schedule-wal
+celerybeat.pid
+
+# PostgreSQL
+pgdata/
+*.sql
+*.dump
+
+# Redis
+dump.rdb
+appendonly.aof
+
+
+# Static files (collected by collectstatic)
+static_volume/
