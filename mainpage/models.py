@@ -6,6 +6,7 @@ class PersonalInfo(models.Model):
     phone = models.CharField(max_length=15)
     address = models.TextField(blank=True)
     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
+    about = models.TextField(blank=True)
 
 class Education(models.Model):
     school_name = models.CharField(max_length=200)
