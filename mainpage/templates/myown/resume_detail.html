@@ -15,6 +15,7 @@
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
             <a href="#about">About</a>
+            <a href="#skill">Skills</a>
             <a href="#education">Education</a>
             <a href="#experience">Experience</a>
             <a href="#contact">Contact</a>
@@ -42,11 +43,16 @@
         <div class="about-content">
             <h2 class="heading">About <span>Me</span></h2>
             <p>{{ personal_info.about }}</p>
-            <a href="#education" class="btn">Read More</a>
         </div>
-        <div class="about-img">
-            <img src="{% static 'myown/images/about.jpg' %}" alt="About Image">
-        </div>
+    </section>
+
+    <section class="skill" id="skill">
+        <h2 class="heading">Skills</h2>
+        <ul>
+            {% for skill in personal_info.skills.all %}
+                <li>{{ skill.name }} ({{ skill.get_category_display }}) - {{ skill.proficiency }}</li>
+            {% endfor %}
+        </ul>
     </section>
 
     <section class="education" id="education">
@@ -59,11 +65,16 @@
     </section>
 
     <section class="experience" id="experience">
-        <h2 class="heading">Work Experience</h2>
+        <h2 class="heading experience-heading">Work Experience</h2>
         <ul>
             {% for job in personal_info.work_experiences.all %}
-                <li>{{ job.job_title }} at {{ job.company }} ({{ job.start_date }} - {{ job.end_date }})</li>
-                <p>{{ job.description }}</p>
+            <li class="experience-item">
+                <strong>{{ job.job_title }}</strong> at <em>{{ job.company }}</em><br>
+                <span>({{ job.start_date }} - {{ job.end_date }})</span><br>
+                <p class="experience-description">
+                    {{ job.description }}
+                </p>
+            </li>
             {% endfor %}
         </ul>
     </section>
@@ -73,6 +84,7 @@
         <div class="contact-info">
             <p>Email: {{ personal_info.email }}</p>
             <p>Phone: {{ personal_info.phone }}</p>
+            <p>Telegram: {{ personal_info.second_phone }}</p>
             <p>Address: {{ personal_info.address }}</p>
         </div>
     </section>
