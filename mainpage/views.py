@@ -6,6 +6,7 @@ from django.template.loader import render_to_string
 
 from .models import PersonalInfo
 
+
 def resume_detail(request, pk):
     personal_info = get_object_or_404(PersonalInfo, pk=pk)
     return render(request, 'myown/resume_detail.html', {'personal_info': personal_info})

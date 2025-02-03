@@ -13,12 +13,14 @@ class PersonalInfoAdmin(admin.ModelAdmin):
         }),
     )
 
+
 @admin.register(Skill)
 class SkillAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'proficiency', 'personal_info')
     search_fields = ('name', 'category', 'proficiency', 'personal_info__full_name')
     list_filter = ('category', 'proficiency')
     autocomplete_fields = ('personal_info',)
+
 
 @admin.register(Education)
 class EducationAdmin(admin.ModelAdmin):

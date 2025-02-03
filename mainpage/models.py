@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class PersonalInfo(models.Model):
     full_name = models.CharField(max_length=200)
     email = models.EmailField()
@@ -8,6 +9,7 @@ class PersonalInfo(models.Model):
     address = models.TextField(blank=True)
     profile_picture = models.ImageField(upload_to='profile_pics/', blank=True, null=True)
     about = models.TextField(blank=True)
+
 
 class Skill(models.Model):
     CATEGORY_CHOICES = [
@@ -24,6 +26,7 @@ class Skill(models.Model):
     def __str__(self):
         return f"{self.name} ({self.get_category_display()})"
 
+
 class Education(models.Model):
     school_name = models.CharField(max_length=200)
     degree = models.CharField(max_length=100)
@@ -31,6 +34,7 @@ class Education(models.Model):
     start_date = models.DateField()
     end_date = models.DateField(blank=True, null=True)
     personal_info = models.ForeignKey(PersonalInfo, on_delete=models.CASCADE, related_name='educations')
+
 
 class WorkExperience(models.Model):
     job_title = models.CharField(max_length=100)
